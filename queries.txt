@@ -1,0 +1,82 @@
+Spool C:\CIS330\SQL_Term_Project.txt
+REM Griffin Cosgrove
+Set Echo On
+Set Linesize 270
+Set wrap off
+
+REM SUBQUERY #1
+REM Display the first name, last name, and fraternity name of every brother that held a position and paid dues for the fall 2018 semester.
+select b_first_name, b_last_name, frat_name
+from brother
+where b_id in(select b_id from position
+where b_id in(select b_id from dues_paid
+where upper(dues_paid_semester) = 'FALL' AND dues_paid_year = 2018));
+
+REM SUBQUERY #2
+REM Display Display the first name, last name, and fraternity name of every brother that was president and has paid dues.
+select b_first_name, b_last_name, frat_name
+from brother
+where b_id in(select b_id from dues_paid
+where b_id in(select b_id from position where UPPER(pos_title) = 'PRESIDENT'));
+
+REM CORRELATED SUBQUERY #3
+REM Display the ID, gpa, major, and fraternity name of the brother with the highest gpa in each fraternity.
+select b_id, b_last_name, b_gpa, b_major, frat_name from brother b1 where b_gpa = 
+(select MAX(b_gpa) from brother b2
+where b1.frat_name = b2.frat_name);
+
+REM INNER JOIN #4
+REM Display the ID, position title, and year of brothers who held a position and paid dues.
+select b.b_id, b.b_last_name, p.pos_title, dp.dues_paid_year as year
+from brother b, position p, dues_paid dp
+where b.b_id = p.b_id AND p.b_id = dp.b_id;
+
+REM INNER JOIN #5
+REM Display the faculty ID for the faculty advisor, date founded, and the brother IDs for all brothers in Alpha Tau Omega.
+select fac.fac_id, fac.fac_last_name, frat.frat_name, frat.frat_date_founded, b.b_id, b.b_last_name
+from faculty_advisor fac, fraternity frat, brother b
+where UPPER(b.frat_name) = 'ALPHA TAU OMEGA' AND fac.fac_id = frat.fac_id AND frat.frat_name = b.frat_name
+order by b.b_id;
+
+REM INNER JOIN #6
+REM Display the faculty ID, fraternity name, and the house address for each house.
+select fac.fac_id, fac.fac_last_name, frat.frat_name, h.house_address
+from faculty_advisor fac, fraternity frat, house h
+where fac.fac_id = frat.fac_id AND frat.frat_name = h.frat_name
+order by fac.fac_id;
+
+REM INNER JOIN(SELF-JOIN) #7
+REM Display the faculty advisor lasst name, and the last name of their supervisor.
+select f1.fac_id, f1.fac_last_name, f2.fac_id, f2.fac_last_name as supr_name
+from faculty_advisor f1, faculty_advisor f2
+where f1.fac_supervisor = f2.fac_id;
+
+REM THREE-WAY OUTER JOIN #8
+REM Display the faculty ID for every faculty advisor even if they do not advise a fraternity, the name of the fraternity they advise, and the address of the fraternity's house.
+select fac.fac_id, fac.fac_last_name, frat.frat_name, h.house_address
+from faculty_advisor fac, fraternity frat, house h
+where fac.fac_id = frat.fac_id(+) AND
+frat.frat_name = h.frat_name(+)
+order by fac.fac_id;
+
+
+REM OUTER THREE-WAY JOIN #9
+REM Display the brother ID for every brother even if they do not hold a position, the name of the position, and the year they paid dues.
+select b.b_id, b.b_last_name, b.frat_name, p.pos_title, dp.dues_paid_year as year
+from brother b, position p, dues_paid dp
+where b.b_id = p.b_id(+) AND b.b_id = dp.b_id(+)
+order by b.b_id;
+
+REM OUTER JOIN #10
+REM Display every fraternity name and their house address even if they do not occupy a house.
+select f.frat_name, h.house_address
+from fraternity f, house h
+where f.frat_name = h.frat_name(+)
+order by f.frat_name;
+
+REM OUTER JOIN #11
+REM Display every brother ID and last name, fraternity name, and position even if they do not hold a position.
+select b.b_id, b.b_last_name, b.frat_name, p.pos_title
+from brother b, position p
+where b.b_id = p.b_id(+)
+order by b.b_id;
