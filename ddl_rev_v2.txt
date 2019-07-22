@@ -1,0 +1,46 @@
+REM TABLE 1
+CREATE TABLE Faculty_Advisor(
+fac_id integer primary key, 
+fac_first_name varchar(25), 
+fac_last_name varchar(25),  
+fac_supervisor integer);
+
+REM TABLE 2
+CREATE TABLE Fraternity(
+frat_name varchar(25) PRIMARY KEY,  
+frat_date_founded varchar(10), 
+fac_id integer NOT NULL, 
+FOREIGN KEY(fac_id) REFERENCES faculty_advisor);
+
+REM TABLE 3
+CREATE TABLE Brother(
+b_id integer PRIMARY KEY, 
+b_first_name varchar(25), 
+b_last_name varchar(25), 
+b_gpa number(3,2), 
+b_major varchar(25), 
+frat_name varchar(25) NOT NULL, 
+FOREIGN KEY(frat_name) REFERENCES fraternity);
+
+REM TABLE 4
+CREATE TABLE Dues_Paid(
+b_id integer PRIMARY KEY, 
+dues_paid_semester varchar(10), 
+dues_paid_year varchar(4), 
+dues_paid_yes_no varchar(3), 
+FOREIGN KEY(b_id) REFERENCES Brother);
+
+REM TABLE 5
+CREATE TABLE House(
+house_address varchar(25) PRIMARY KEY, 
+house_zip char(5), 
+frat_name varchar(25) NOT NULL, 
+FOREIGN KEY (frat_name) references fraternity);
+
+REM TABLE 6
+CREATE TABLE Position(
+b_id integer PRIMARY KEY, 
+pos_title varchar(25), 
+pos_semester varchar(10), 
+pos_year varchar(4), 
+FOREIGN KEY(b_id) REFERENCES Brother);

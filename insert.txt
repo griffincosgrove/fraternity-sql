@@ -1,0 +1,182 @@
+REM faculty_advisor insert statements
+
+INSERT into faculty_advisor values
+	(1, 'John', 'Smith', 3);
+
+INSERT into faculty_advisor values
+	(2, 'Boris', 'Klokov', 3);
+
+INSERT into faculty_advisor values
+	(3, 'David', 'Choo', 4);
+
+INSERT into faculty_advisor values
+	(4, 'Adam', 'Lindberg', null);
+
+INSERT into faculty_advisor values
+	(5, 'Rich', 'Froning', 3);
+
+INSERT into faculty_advisor values
+	(6, 'Alex', 'Norris', null);
+REM
+INSERT into faculty_advisor values
+	(7, 'Armin', 'Dosh', null);
+
+INSERT into faculty_advisor values
+	(8, 'Bob', 'Dingus', null);
+
+INSERT into faculty_advisor values
+	(9, 'Mike', 'Diesel', 6);
+
+REM fraternity insert statements
+
+INSERT into FRATERNITY values
+	('Alpha Tau Omega', '2008', 1);
+
+INSERT into FRATERNITY values
+	('Kappa Sigma', '2000', 4);
+
+INSERT into FRATERNITY values
+	('Delta Kappa Epsilon', '1986', 5);
+
+INSERT into FRATERNITY values
+	('Delta Tau Chi', '2000', 6);
+
+INSERT into FRATERNITY values
+	('Sigma Alpha Kappa', '2006', 8);
+
+INSERT into FRATERNITY values
+	('Xi Delta Alpha', '2003', 7);
+
+INSERT into FRATERNITY values
+	('Gamma Delta Iota', '2009', 9);
+
+REM HOUSE insert statements
+
+INSERT into HOUSE values
+	('164 Love and Respect Way', '22098', 'Alpha Tau Omega');
+
+INSERT into HOUSE values
+	('543 greek row', '22098', 'Kappa Sigma');
+
+INSERT into HOUSE values
+	('540 greek row', '22098', 'Delta Kappa Epsilon');
+
+INSERT into HOUSE values
+	('861 Village Lane', '22056', 'Alpha Tau Omega');
+
+INSERT into HOUSE values
+	('1160 Usman Circle', '22098', 'Sigma Alpha Kappa');
+
+INSERT into HOUSE values
+	('547 Layman Av.', '22087', 'Xi Delta Alpha');
+
+INSERT into HOUSE values
+	('1165 Manor', '22094', 'Alpha Tau Omega');
+
+INSERT into HOUSE values
+	('660 Walnut Lane', '22872', 'Kappa Sigma');
+
+REM BROTHER INSERT STATEMENTS
+
+INSERT into BROTHER values
+	(1, 'Griffin', 'Cosgrove', 3.98, 'CIS', 'Alpha Tau Omega');
+
+INSERT into BROTHER values
+	(2, 'Mike', 'Kendzulak', 3.26, 'Finance', 'Alpha Tau Omega');
+
+INSERT into BROTHER values
+	(3, 'Andrew', 'Nappi', 3.23, 'Marketing', 'Alpha Tau Omega');
+
+INSERT into BROTHER values
+	(4, 'Jack', 'Wakeham', 3.01, 'Finance', 'Kappa Sigma');
+
+INSERT into BROTHER values
+	(5, 'Mitch', 'Langford', 3.04, 'Finance', 'Kappa Sigma');
+
+INSERT into BROTHER values
+	(6, 'Adam', 'Johnson', 3.2, 'Chemistry', 'Kappa Sigma');
+
+INSERT into BROTHER values
+	(7, 'Jack', 'Langford', 3.03, 'Electrical engineering', 'Delta Kappa Epsilon');
+
+INSERT into BROTHER values
+	(8, 'Grady', 'Howitzer', 2.71, 'Undecided', 'Delta Kappa Epsilon');
+
+INSERT into BROTHER values
+	(9, 'George', 'Bush', 3.8, 'Political Science', 'Delta Kappa Epsilon');
+
+INSERT into BROTHER values
+	(10, 'Robert', 'Hoover', 2.7, 'Political Science', 'Delta Tau Chi');
+
+INSERT into BROTHER values
+	(11, 'John', 'Blutarsky', 1.5, 'Drama', 'Delta Tau Chi');
+
+INSERT into BROTHER values
+	(12, 'Kurt', 'Can', 2.3, 'law', 'Sigma Alpha Kappa');
+
+INSERT into BROTHER values
+	(13, 'Jack', 'Anders', 2.6, 'finance', 'Sigma Alpha Kappa');
+
+INSERT into BROTHER values
+	(14, 'Robert', 'Fred', 3.2, 'MIS', 'Xi Delta Alpha');
+
+INSERT into BROTHER values
+	(15, 'Kyle', 'White', 2.7, 'CS', 'Xi Delta Alpha');
+
+INSERT into BROTHER values
+	(16, 'Caleb', 'Losser', 3.3, 'ISAT', 'Gamma Delta Iota');
+
+INSERT into BROTHER values
+	(17, 'Mike', 'Sevens', 3.5, 'Undecided', 'Gamma Delta Iota');
+
+REM POSITION insert statements
+
+INSERT into POSITION values
+	(1, 'President', 'fall', '2018');
+
+INSERT into POSITION values
+	(3, 'worthy sentinel', 'fall', '2018');
+
+INSERT into POSITION values
+	(4, 'president', 'spring', '2017');
+
+INSERT into POSITION values
+	(7, 'president', 'fall', '2018');
+
+INSERT into POSITION values
+	(10, 'President', 'Fall', '2018');
+
+INSERT into POSITION values
+	(2, 'Grand Master', 'Spring', '2017');
+
+INSERT into POSITION values
+	(9, 'Worthy Eminent', 'fall', '2018');
+
+INSERT into POSITION values
+	(6, 'Social', 'Spring', '2018');
+
+REM DUES_PAID insert statements
+
+INSERT into Dues_Paid values
+	(1, 'fall', '2018', 'yes');
+
+INSERT into Dues_Paid values
+	(7, 'fall', '2018', 'yes');
+
+INSERT into Dues_Paid values
+	(4, 'spring', '2018', 'no');
+
+INSERT into Dues_Paid values
+	(8, 'fall', '2018', 'yes');
+
+INSERT into Dues_Paid values
+	(2, 'Spring', '2018', 'yes');
+
+INSERT into Dues_Paid values
+	(3, 'fall', '2018', 'yes');
+
+INSERT into Dues_Paid values
+	(5, 'fall', '2017', 'no');
+
+INSERT into Dues_Paid values
+	(10, 'Fall', '2018', 'yes');
